@@ -29,6 +29,37 @@ const bfs = (start, end) => {
     const visited = new Set();
 
     while (queue.length > 0) {
-        const air
+        const airport = queue.shift();
+        const destinations = adjacencyList.get(airport);
+        for (let i = 0; i < destinations.length; i++) {
+            if (destinations[i] === end) {
+                console.log('Found it!');
+            }
+            if (!visited.has(destinations[i])) {
+                visited.add(destinations[i]);
+                queue.push(destinations[i]);
+                console.log(destinations[i])
+            }
+        }
     }
 }
+
+console.log(bfs('PHX', 'BKK'));
+console.log('/n')
+
+const dfs = (start, end, visited = new Set()) => {
+    console.log(start);
+    visited.add(start);
+    const destinations = adjacencyList.get(start);
+    for (let i = 0; i < destinations.length; i++) {
+        if (destinations[i] === end) {
+            console.log('Found it!');
+            return;
+        }
+        if (!visited.has(destinations[i])) {
+            dfs(destinations[i], end, visited)
+        }
+    }
+}
+
+console.log(dfs('PHX', 'BKK'));
