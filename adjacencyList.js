@@ -22,4 +22,6 @@ airports.forEach(airport => addNode(airport));
 
 routes.forEach(route => addEdge(...route));
 
-console.log(adjacencyList);
+// console.log(adjacencyList);
+
+exports.adjacencyList = adjacencyList;
