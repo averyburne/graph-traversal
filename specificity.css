@@ -1,3 +1,11 @@
-body {
-    background-color: blue;
+* {
+    box-sizing: border-box;
+}
+
+.div1 {
+    border: 1px solid blue;
+}
+
+.div2 {
+    border: 1px solid red;
 }
